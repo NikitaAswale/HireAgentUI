@@ -52,7 +52,7 @@ fun HireAgentUI(){
         Row (modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.Top){
-            Text(text = ".",  fontWeight = FontWeight.Bold, color = Color(0xff3f5ef9), modifier = Modifier.size(48.dp))
+            Text(text = ".", fontSize = 64.sp, fontWeight = FontWeight.Bold, color = Color(0xff3f5ef9))
             Text(text = ".", fontSize = 64.sp, fontWeight = FontWeight.Bold, color = Color.Gray)
             Text(text = ".", fontSize = 64.sp, fontWeight = FontWeight.Bold, color = Color.Gray)
         }
@@ -158,8 +158,19 @@ fun HireAgentUI(){
                 //colors = CardDefaults.cardColors(Color.LightGray)
             ) {
                 TextField(value = "", onValueChange = {}, label = { Text("Job Description") },
-                    placeholder = {"Job Description"}, modifier = Modifier.fillMaxWidth(),singleLine = false,
+                    placeholder = {"Job Description"}, modifier = Modifier.fillMaxSize(),singleLine = false,
                     )
+            }
+
+            Row(modifier = Modifier.fillMaxWidth().padding(8.dp),
+                horizontalArrangement = Arrangement.End,
+                verticalAlignment = Alignment.Bottom) {
+                Text(
+                    text = "0/50+ chars",
+                    fontSize = 10.sp,
+                    modifier = Modifier.padding(8.dp),
+                   // color = Color(0xFF7A7A7A)
+                )
             }
         }
     }
