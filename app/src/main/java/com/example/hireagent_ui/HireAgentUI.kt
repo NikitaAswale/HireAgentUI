@@ -33,6 +33,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -48,7 +49,8 @@ fun HireAgentUI(){
                 Brush.verticalGradient(
                     listOf(
                         Color(0xFF667eea),
-                        Color(0xFF764ba2)
+                        Color(0xFF764ba2),
+                        Color(0xFFf093fb)
                     )
                 )
             )
@@ -201,7 +203,12 @@ fun HireAgentUI(){
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 20.dp),
+                    .padding(bottom = 20.dp)
+                    .shadow(
+                        elevation = 12.dp,
+                        shape = RoundedCornerShape(20.dp),
+                        clip = false
+                    ),
                 colors = CardDefaults.cardColors(
                     containerColor = Color.White
                 ),
@@ -324,7 +331,13 @@ fun HireAgentUI(){
 
             // Job Description Card
             Card(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .shadow(
+                        elevation = 12.dp,
+                        shape = RoundedCornerShape(20.dp),
+                        clip = false
+                    ),
                 colors = CardDefaults.cardColors(
                     containerColor = Color.White
                 ),
