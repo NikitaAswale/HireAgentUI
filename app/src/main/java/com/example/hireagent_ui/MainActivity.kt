@@ -4,13 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.hireagent_ui.ui.theme.HireAgent_UITheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +15,27 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             HireAgent_UITheme {
-                HireAgentUI()
+                val navController = rememberNavController()
+
+                NavHost(
+                    navController = navController,
+                    startDestination = "home"
+                ) {
+                    composable("home") {
+                        HireAgentUI(
+                            onNavigateToResults = {
+                                navController.navigate("results")
+                            }
+                        )
+                    }
+                    composable("results") {
+                        ResultsScreen(
+                            onBackClick = {
+                                navController.popBackStack()
+                            }
+                        )
+                    }
+                }
             }
         }
     }
