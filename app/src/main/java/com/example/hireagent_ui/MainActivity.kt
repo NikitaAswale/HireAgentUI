@@ -25,11 +25,21 @@ class MainActivity : ComponentActivity() {
                         HireAgentUI(
                             onNavigateToResults = {
                                 navController.navigate("results")
+                            },
+                            onNavigateToSettings = {
+                                navController.navigate("settings")
                             }
                         )
                     }
                     composable("results") {
                         ResultsScreen(
+                            onBackClick = {
+                                navController.popBackStack()
+                            }
+                        )
+                    }
+                    composable("settings") {
+                        SettingsScreen(
                             onBackClick = {
                                 navController.popBackStack()
                             }
